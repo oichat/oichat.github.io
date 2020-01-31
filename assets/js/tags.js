@@ -2,7 +2,7 @@ function getAction(me, text, friend){
 
 switch (text) {
     case "hug":
-        return '<span class="color-red">**'+me+' is huggimg '+friend+'**</span>';
+        return '<span class="color-red">**'+me+' is hugging '+friend+'**</span>';
         break;
     case "roll":
         var rand = Math.floor(Math.random() * (100 - 0) + 0);
