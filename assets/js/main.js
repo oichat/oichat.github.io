@@ -24,6 +24,8 @@ auth.onAuthStateChanged(function (user) {
                     $(".welcome-screen").addClass("hidden");
                     $(".edit-profile").removeClass("hidden");
                      $("#user_profile_name").text(userFullName);
+                    $("#callbtn").text("Welcome " + currentUser.first_name);
+                    $("wlcMsg").text("tttt  kkk  jj");
                     usersRef.doc(currentUser.uid).update({
                         "is_active": "Online"
                     })
