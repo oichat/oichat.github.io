@@ -12,15 +12,14 @@ function loadPageByJS(buttonID, pageURL){
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
-       loadPage("pages/app.html");
-        
+        loadPage("pages/app.html");
         usersRef.doc(user.uid).get().then(function (doc) {
 
             if (doc.exists) {
-                 
+                
                 // ---- current user data
                 currentUser = doc.data();
-                var userFullName = currentUser.first_name;
+                var userFullName = currentUser.first_name + " " + currentUser.last_name;
                 if(currentUser.is_active == "new"){
                     $(".welcome-screen").addClass("hidden");
                     $(".edit-profile").removeClass("hidden");
@@ -35,11 +34,10 @@ auth.onAuthStateChanged(function (user) {
                   
                     //$(".welcome-screen").removeClass("hidden");
                 }
+                
                  $("#currenUsersFullName").text(userFullName);
                  $("#currenUserStatus").text(currentUser.mood);
                  $("#statusSignal").addClass("green-dot");
-                
-                
 $(".friend-list").html("");
           
     dbRef.collection("friendship").where("to_uid", "==", user.uid).where("status", "==", 2)
