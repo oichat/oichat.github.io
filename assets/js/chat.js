@@ -115,7 +115,7 @@ function decrypt(message, password){
     $(".chat-screen .body").html("");
 
 /*-----start---------------get realtime messages data-----------------------------*/ 
-  /*  var html = ""; 
+    var html = ""; 
     var q = dbRef.collection('messages').orderBy("msgtime").where("friendship_id", "==", $("#friendship_id").val());
      q.onSnapshot(function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
@@ -149,7 +149,7 @@ function decrypt(message, password){
         });
          $(".chat-screen .body").html(html); 
          $(".chat-screen .body").animate({scrollTop: $(".chat-screen .body").prop("scrollHeight")}, 0); 
-    });*/
+    });
     /*-----end---------------get realtime messages data-----------------------------*/     
         
     

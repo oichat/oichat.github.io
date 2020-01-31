@@ -1,6 +1,7 @@
 $("#account_settings").on("click", function(){
+   $(".welcome-screen").addClass("hidden");
+   $(".edit-account").removeClass("hidden");
     
-   $(".edit-account").removeClass("hidden"); 
         usersRef.doc(auth.currentUser.uid).get().then(function (doc) {
             if (doc.exists) {
                 $("#user_first_name").val(doc.data().first_name);
@@ -20,8 +21,7 @@ $("#update_account").on("click", function(){
         user.updatePassword(pw).then(function() {
 
             usersRef.doc(user.uid).update({
-                "first_name": $("#user_first_name").val(),
-                "last_name": $("#user_last_name").val()
+                "first_name": $("#user_first_name").val()
             });
          
         }).catch(function(error) {
@@ -30,5 +30,6 @@ $("#update_account").on("click", function(){
     }
     
     $(".edit-account").addClass("hidden"); 
+    $(".welcome-screen").removeClass("hidden");
 });
 
