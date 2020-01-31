@@ -112,6 +112,7 @@ function decrypt(message, password){
     $("#chat_status").val(chatStatus);
     console.log( $("#chat_status").val());
     $("#friend_image").attr("src", friendPhotoUrl);
+     
     $(".chat-screen .body").html("");
 
 /*-----start---------------get realtime messages data-----------------------------*/ 
