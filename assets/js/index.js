@@ -14,7 +14,10 @@ auth.onAuthStateChanged(function(user) {
      
         dbRef.ref('/users/' + user.uid).once('value').then(function(snapshot) {
             currentUser = snapshot.val();
-            $("#currenUsersFullName").text(currentUser.first_name+" "+currentUser.last_name);
+            
+            console.log(currentUser.first_name + " .........");
+            
+            $("#currenUsersFullName").text(currentUser.first_name);
             $("#currenUserStatus").text("Status : "+currentUser.is_active);
             
              storageRef.child('images/'+currentUser.photo_url).getDownloadURL().then(function(url) {
@@ -141,22 +144,14 @@ var friendUID;
 			   if(item.val().from_uid == friendUID ){
 				   
 				htmlContent = '<div class="friend-chat">'
-								+'<img id="" class="selected-user-image" src="'+friendPhotoUrl+'" alt="">'
 								+'<div class="selected-user-info">'
-								+ '<p id=""><span class="selected-user-full-name">'+friendName+'</span>&nbsp;&nbsp;'
-								+'<time class="chat-time">'+item.val().time+'</time></p>'
 								+'<p class="selected-user-chat">'+item.val().text+'</p></div>'
 								+'</div>';
 			   }else{
 				htmlContent = '<div class="my-chat">'
 							
 							+'<div class="selected-user-info">'
-							+ '<p class="text-right">'
-							+ '<time class="chat-time">'+item.val().time+' </time> &nbsp;&nbsp;'
-							+'<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
-							+ '</p>'
 							+'<p class="selected-user-chat text-right pull-right">'+item.val().text+'</p></div>'
-							+'<img id="" class="selected-user-image" src="'+$("#currentUserImg").attr('src')+'" alt="">'
 							+'</div>';
 			   }
 			   	$(".chat-screen .body").find( "#"+friendUID+"").append(htmlContent);
@@ -352,22 +347,15 @@ $('#chat_box').keypress(function(e){
 			   if(item.val().from_uid == friendUID ){
 				   
 				htmlContent = '<div class="friend-chat">'
-								+'<img id="" class="selected-user-image" src="'+friendPhotoUrl+'" alt="">'
-								+'<div class="selected-user-info">'
-								+ '<p id=""><span class="selected-user-full-name">'+friendName+'</span>&nbsp;&nbsp;'
-								+'<time class="chat-time">'+item.val().time+'</time></p>'
+	
 								+'<p class="selected-user-chat">'+item.val().text+'</p></div>'
 								+'</div>';
 			   }else{
 				htmlContent = '<div class="my-chat">'
 							
 							+'<div class="selected-user-info">'
-							+ '<p class="text-right">'
-							+ '<time class="chat-time">'+item.val().time+' </time> &nbsp;&nbsp;'
-							+'<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
-							+ '</p>'
+
 							+'<p class="selected-user-chat text-right pull-right">'+item.val().text+'</p></div>'
-							+'<img id="" class="selected-user-image" src="'+$("#currentUserImg").attr('src')+'" alt="">'
 							+'</div>';
 			   }
 			   	$(".chat-screen .body").find( "#"+friendUID+"").append(htmlContent);
