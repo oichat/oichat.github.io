@@ -74,7 +74,7 @@ function decrypt(message, password){
                         + '<time class="chat-time">'+doc.time+' </time> &nbsp;&nbsp;'
                         +'<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
                         + '</p>'
-                        +'<p class="selected-user-chat text-right pull-right">'+decrypt(doc.text, password)+'</p></div>'
+                        +'<p class="selected-user-chat text-right pull-right" style="font-size:18px;">'+decrypt(doc.text, password)+'</p></div>'
                         +'<img id="" class="selected-user-image" src="'+$("#currentUserImg").attr('src')+'" alt="">'
                         +'</div>';
                 }
@@ -130,7 +130,7 @@ function decrypt(message, password){
                         +'</div>';
                 }else{
                          html += '<div class="friend-chat">'
-                        +'<p class="selected-user-chat" style="font-size:21px;">'+decrypt(doc.text, password)+'</p></div>'
+                        +'<p class="selected-user-chat" style="font-size:18px;">'+decrypt(doc.text, password)+'</p></div>'
                         +'</div>';
                 }
          
@@ -141,7 +141,7 @@ function decrypt(message, password){
                         +'</div>';
                 }else{
                       html += '<div class="my-chat">'
-                        +'<p class="selected-user-chat text-right pull-right" style="font-size:21px;">'+decrypt(doc.text, password)+'</p></div>'
+                        +'<p class="selected-user-chat text-right pull-right" style="font-size:18px;">'+decrypt(doc.text, password)+'</p></div>'
                         +'</div>';
                 }
               
@@ -233,7 +233,7 @@ function sendMessage() {
                         + '<time class="chat-time">'+time+' </time> &nbsp;&nbsp;'
                         + '<span class="selected-user-full-name">'+$("#currenUsersFullName").text()+'</span>'
                         + '</p>'
-                        + '<p class="selected-user-chat text-right pull-right" style="font-size:21px;">'+message+'</p></div>'
+                        + '<p class="selected-user-chat text-right pull-right" style="font-size:18px;">'+message+'</p></div>'
                         + '<img id="" class="selected-user-image" src="'+$("#currentUserImg").attr('src')+'" alt="">'
                         + '</div>';
 
