@@ -2,7 +2,7 @@
 
 refreshApp();
 function refreshApp(){
-	
+	console.log("v1...")
 auth.onAuthStateChanged(function(user) {
   if (user) {
 /*          var a = dbRef.ref('messages/'+get_my_id+'/'+get_friend_uid);
