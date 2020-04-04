@@ -117,7 +117,7 @@ function decrypt(message, password){
 
 /*-----start---------------get realtime messages data-----------------------------*/ 
     var html = ""; 
-    var q = dbRef.collection('messages').orderBy("msgtime").where("friendship_id", "==", $("#friendship_id").val()).limit(50);
+    var q = dbRef.collection('messages').orderBy("msgtime").where("friendship_id", "==", $("#friendship_id").val());
      q.onSnapshot(function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
                 
@@ -196,7 +196,7 @@ function sendMessage() {
         dbRef.collection('messages').doc()
             .set(messageData)
             .then(function () {
-                
+                console.log("Message Sent");
                 if( $("#chat_status").val() == 0){
                        dbRef.collection('friendship').doc(friendshipID).update(
                         {chat : 1}

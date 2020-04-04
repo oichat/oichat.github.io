@@ -2,7 +2,7 @@
 
 refreshApp();
 function refreshApp(){
-	console.log("v1...")
+	
 auth.onAuthStateChanged(function(user) {
   if (user) {
 /*          var a = dbRef.ref('messages/'+get_my_id+'/'+get_friend_uid);
@@ -97,14 +97,6 @@ auth.onAuthStateChanged(function(user) {
 	
 }
 
-
-
-
-
-
-
-
-
 var f;
 
 
@@ -139,7 +131,7 @@ var friendUID;
     var html ='<div id = "'+friendUID+'"></div>';
 	$(".chat-screen .body").append(html);
 	var htmlContent;
-   var msg =  dbRef.ref('messages/'+friendUID+'/' + currentUser.user_uid)..limit(50);
+   var msg =  dbRef.ref('messages/'+friendUID+'/' + currentUser.user_uid).limitToLast(20);
 	msg.once('value').then(function(snapshot) {
         
 		 if(snapshot != null){
