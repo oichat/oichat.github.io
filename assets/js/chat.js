@@ -196,7 +196,7 @@ function sendMessage() {
         dbRef.collection('messages').doc()
             .set(messageData)
             .then(function () {
-                console.log("Message Sent");
+                
                 if( $("#chat_status").val() == 0){
                        dbRef.collection('friendship').doc(friendshipID).update(
                         {chat : 1}
