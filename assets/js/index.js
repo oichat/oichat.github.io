@@ -97,6 +97,14 @@ auth.onAuthStateChanged(function(user) {
 	
 }
 
+
+
+
+
+
+
+
+
 var f;
 
 
@@ -131,7 +139,7 @@ var friendUID;
     var html ='<div id = "'+friendUID+'"></div>';
 	$(".chat-screen .body").append(html);
 	var htmlContent;
-   var msg =  dbRef.ref('messages/'+friendUID+'/' + currentUser.user_uid).limitToLast(20);
+   var msg =  dbRef.ref('messages/'+friendUID+'/' + currentUser.user_uid)..limit(50);
 	msg.once('value').then(function(snapshot) {
         
 		 if(snapshot != null){
